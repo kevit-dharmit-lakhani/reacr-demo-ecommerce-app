@@ -1,0 +1,29 @@
+.wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper p {
+  position: absolute;
+  top: 50;
+  z-index: -2;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: large;
+  font-weight: bold;
+  background-color: rgba(200, 200, 200, 0.2);
+}
+
+.success {
+  color: rgb(50, 255, 50);
+}
+
+.fail {
+  color: rgb(255, 50, 50);
+}

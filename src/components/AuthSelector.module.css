@@ -1,0 +1,36 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 80vw;
+  max-width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.button {
+  padding: 20px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  background-color: var(--black-hover);
+}

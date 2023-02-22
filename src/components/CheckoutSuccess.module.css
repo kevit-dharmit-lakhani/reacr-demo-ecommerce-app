@@ -1,0 +1,78 @@
+.button {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button button {
+  border: none;
+  color: var(--white);
+  font-size: xx-large;
+  font-weight: bolder;
+  padding: 20px;
+  cursor: pointer;
+  background-color: var(--black);
+}
+
+.button button:hover,
+.button button:focus,
+.button button:active {
+  background-color: var(--black-hover);
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 128, 0, 0.75);
+  max-width: 1500px;
+  width: 90%;
+  margin: 10px auto;
+  color: white;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.items {
+  background-color: var(--black);
+  color: var(--white);
+  max-width: 1500px;
+  width: 90%;
+  margin: 2.5px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.itemName {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.quantity {
+  font-size: larger;
+  font-weight: light;
+}
+
+.total {
+  max-width: 1500px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

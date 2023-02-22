@@ -1,0 +1,27 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  max-width: 1500px;
+  min-height: 400px;
+  width: 90%;
+  margin: 10px auto;
+  gap: 50px;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.right {
+  width: 100%;
+  text-align: center;
+}
+
+.actions span {
+  background-color: var(--black-hover);
+  color: var(--white);
+}

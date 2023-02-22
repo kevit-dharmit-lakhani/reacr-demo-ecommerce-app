@@ -1,0 +1,50 @@
+.addToCart {
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  color: black;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.addToCart:hover {
+  background-color: var(--white-hover);
+}
+
+.wrapper {
+  border-radius: 20px;
+}
+
+.addItem,
+.removeItem {
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  color: black;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.removeItem {
+  padding: 5px 12.185px;
+}
+
+.addItem:hover,
+.removeItem:hover {
+  background-color: var(--white-hover);
+}
+
+.itemsInCart {
+  background-color: var(--white);
+  color: black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: larger;
+  font-weight: bolder;
+  cursor: default;
+}

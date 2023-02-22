@@ -1,0 +1,67 @@
+.wrapper {
+  max-width: 1500px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid var(--black);
+  box-shadow: 0 0 5px black;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.profilePic {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  background-color: white;
+  border: 5px solid var(--black);
+  border-radius: 50%;
+}
+
+.inputBundle {
+  display: flex;
+  margin: auto;
+  gap: 5px;
+}
+
+.singleInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.singleInput input {
+  font-size: large;
+  text-align: center;
+}
+
+.saveButton,
+.editButton {
+  margin: auto;
+  padding: 10px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  font-size: 150%;
+  cursor: pointer;
+}
+
+.saveButton:hover,
+.saveButton:focus,
+.saveButton:active,
+.editButton:hover,
+.editButton:focus,
+.editButton:active {
+  background-color: var(--black-hover);
+}
+
+.editButton {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}

@@ -1,0 +1,60 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  width: max-content;
+  text-align: center;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.form input,
+.form textarea {
+  display: block;
+  margin: auto;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 2px solid black;
+  color: black;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+}
+
+.actions button {
+  cursor: pointer;
+  font: inherit;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.actions button:hover,
+.actions button:active,
+.actions button:focus {
+  background-color: var(--black-hover);
+}
+
+.actions a {
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.actions a:hover {
+  color: var(--black-hover);
+}

@@ -1,0 +1,6 @@
+:root {
+  --black: rgb(70, 70, 70);
+  --white: rgb(220, 220, 220);
+  --white-hover: rgb(180, 180, 180);
+  --black-hover: rgb(120, 120, 120);
+}
