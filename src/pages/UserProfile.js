@@ -2,7 +2,6 @@ import { useNavigate, redirect } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { notifActions } from "../store/notifSlice";
-import Loader from "../components/Loader";
 import UserProfileCard from "../components/UserProfileCard";
 
 const UserProfilePage = () => {
@@ -43,10 +42,10 @@ const UserProfilePage = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       <UserProfileCard
         data={userData}
         setData={setUserData}
+        isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
     </>

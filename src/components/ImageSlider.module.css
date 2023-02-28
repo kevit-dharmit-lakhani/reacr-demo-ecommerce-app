@@ -68,9 +68,9 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid var(--white);
+  border: 3px solid var(--white-hover);
   margin: 0 5px;
-  background: var(--white);
+  background: var(--white-hover);
   cursor: pointer;
 }
 

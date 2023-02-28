@@ -6,6 +6,14 @@ let initialState = {
   totalAmount: 0,
 };
 
+const add = (a, b) => {
+  return Number((a + b).toFixed(2));
+};
+
+const sub = (a, b) => {
+  return Number((a - b).toFixed(2));
+};
+
 const user = JSON.parse(localStorage.getItem("isLoggedIn"));
 
 if (user !== null && user.cart) {
@@ -20,18 +28,22 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalQuantity++;
-      state.totalAmount = state.totalAmount + newItem.price;
+      state.totalAmount = add(state.totalAmount, newItem.discountedPrice);
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
           price: newItem.price,
+          discountedPrice: newItem.discountedPrice,
           quantity: 1,
-          totalPrice: newItem.price,
+          totalPrice: newItem.discountedPrice,
           name: newItem.title,
         });
       } else {
         existingItem.quantity++;
-        existingItem.totalPrice = existingItem.totalPrice + newItem.price;
+        existingItem.totalPrice = add(
+          existingItem.totalPrice,
+          existingItem.discountedPrice
+        );
       }
       const localUserData = JSON.parse(localStorage.getItem("isLoggedIn"));
       localUserData.cart = state;
@@ -42,12 +54,15 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.totalQuantity--;
-      state.totalAmount = state.totalAmount - existingItem.price;
+      state.totalAmount = sub(state.totalAmount, existingItem.discountedPrice);
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
       } else {
         existingItem.quantity--;
-        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
+        existingItem.totalPrice = sub(
+          existingItem.totalPrice,
+          existingItem.discountedPrice
+        );
       }
       const localUserData = JSON.parse(localStorage.getItem("isLoggedIn"));
       JSON.stringify(state) === JSON.stringify(initialState)
@@ -57,10 +72,15 @@ const cartSlice = createSlice({
     },
 
     resetState() {
+      const newState = {
+        items: [],
+        totalQuantity: 0,
+        totalAmount: 0,
+      };
       const localUserData = JSON.parse(localStorage.getItem("isLoggedIn"));
       delete localUserData.cart;
       localStorage.setItem("isLoggedIn", JSON.stringify(localUserData));
-      return initialState;
+      return newState;
     },
   },
 });

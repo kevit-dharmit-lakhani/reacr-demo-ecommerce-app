@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  max-width: 1500px;
+  width: 90%;
+  background-color: rgb(245, 245, 245);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 10px;
+  padding: 15px;
+}
+
+.card ul {
+  list-style: none none inside;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.items a {
+  text-decoration: none;
+  color: black;
+  font-size: large;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

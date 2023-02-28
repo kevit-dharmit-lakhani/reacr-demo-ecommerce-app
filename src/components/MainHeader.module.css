@@ -8,16 +8,20 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px;
-  /* height: 150px; */
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 20px;
 }
 
 .h1 {
+  margin: 5px;
   margin-left: 5%;
   font-family: "Pacifico", cursive;
   color: var(--white);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-  font-size: 300%;
+  font-size: 200%;
   font-weight: bolder;
   cursor: pointer;
 }
@@ -31,15 +35,91 @@
   margin-right: 5%;
 }
 
+.searchIcon {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.searchIcon:hover {
+  color: var(--white-hover);
+}
+
+.searchBar {
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 5px;
+  background-color: var(--white);
+  border-radius: 20px;
+}
+
+.searchInput {
+  width: 0;
+  border: none;
+  font-size: large;
+  transition: width 0.75s ease-in-out;
+}
+
+.searchInput:focus {
+  outline: none;
+  width: 300px;
+}
+
 .profileIcon {
-  stroke: var(--white);
+  stroke: var(--black);
+  color: var(--white);
   border-radius: 50%;
 }
 
-.profileIcon:hover,
-.profileIcon:focus,
-.profileIcon:active {
-  stroke: var(--white-hover);
+.userMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.dropDown {
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  right: 0;
+  z-index: 1;
+}
+
+.dropDown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropDown a:hover {
+  background-color: var(--white-hover);
+}
+
+.userMenu:hover .dropDown {
+  display: block;
+}
+
+.dropDown .logoutBtn {
+  border: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  background-color: var(--black);
+}
+
+.logoutBtn:hover {
+  background-color: var(--black-hover);
+}
+
+.userMenu:hover .profileIcon {
+  fill: var(--white-hover);
 }
 
 .cartIcon {
@@ -65,24 +145,8 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  padding: 5px 10px;
+  padding: 3px 7px;
   border-radius: 50%;
   background: red;
   color: white;
-}
-
-.userButtons button {
-  padding: 10px;
-  background-color: var(--white);
-  color: var(--black);
-  border: none;
-  border-radius: 20px;
-  font-size: 200%;
-  cursor: pointer;
-}
-
-.userButtons button:hover,
-.userButtons button:focus,
-.userButtons button:active {
-  background-color: var(--white-hover);
 }

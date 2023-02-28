@@ -1,27 +1,47 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
   max-width: 1500px;
   min-height: 400px;
   width: 90%;
-  margin: 10px auto;
+  margin: 20px auto;
   gap: 50px;
+}
+
+.skeletonRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px 0;
+}
+
+.right {
+  width: 100%;
 }
 
 .reviews {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.right {
-  width: 100%;
-  text-align: center;
-}
-
 .actions span {
   background-color: var(--black-hover);
   color: var(--white);
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prices p {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.prices span {
+  padding-top: 1px;
 }

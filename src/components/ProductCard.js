@@ -1,42 +1,82 @@
-import { Link, useNavigate } from "react-router-dom";
-import AddToCartButtons from "./AddToCartButtons";
-import StarRating from "./StarRating";
+import { useNavigate } from "react-router-dom";
+import { Chip, Skeleton } from "@mui/material";
 import classes from "./ProductCard.module.css";
+import StarRating from "./StarRating.js";
+import getDiscountedPrice from "../util/getDiscountedPrice";
+
+const arr = [1, 2, 3, 4, 5];
 
 const ProductCard = (props) => {
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
-    navigate(e.target.id);
+    navigate(e.currentTarget.id);
   };
 
   return (
     <div className={classes.wrapper}>
-      {props.products.map((product) => (
-        <div className={classes.card} key={product.id}>
-          <img
-            src={product.thumbnail}
-            alt={product.title}
-            id={product.id}
-            onClick={clickHandler}
-          />
-          <div className={classes.details}>
-            <div className={classes.title}>
-              <h1>
-                <Link to={`${product.id}`}>{product.title}</Link>
-              </h1>
-              <h3>${product.price}</h3>
-            </div>
-            <div className={classes.description}>
-              <Link to={`${product.id}`}>{product.description}</Link>
-            </div>
-            <div className={classes.last}>
-              <StarRating rating={product.rating} />
-              <AddToCartButtons item={product} />
+      {!props.products.length &&
+        arr.map((x) => (
+          <div className={classes.loaderCard} key={x}>
+            <Skeleton
+              variant="rounded"
+              width={300}
+              height={300}
+              className={classes.img}
+            />
+            <div className={classes.details}>
+              <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+              <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+              <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
             </div>
           </div>
+        ))}
+
+      {props.products.length > 0 &&
+        props.products.map((product) => (
+          <div
+            className={classes.card}
+            key={product.id}
+            id={product.id}
+            onClick={clickHandler}
+          >
+            <img src={product.thumbnail} alt={product.title} />
+            <div className={classes.details}>
+              <h2>{product.title}</h2>
+              <div className={classes.prices}>
+                <h3>
+                  $
+                  {getDiscountedPrice(
+                    product.price,
+                    product.discountPercentage
+                  )}
+                </h3>
+                <p>${product.price}</p>
+                <Chip
+                  label={`${product.discountPercentage}% off`}
+                  color="success"
+                  size="small"
+                />
+              </div>
+              <StarRating rating={product.rating} />
+            </div>
+          </div>
+        ))}
+      {props.hasMore && (
+        <div className={classes.loaderCard}>
+          <Skeleton
+            variant="rounded"
+            width={300}
+            height={300}
+            className={classes.img}
+          />
+          <div className={classes.details}>
+            <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+            <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+            <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+          </div>
         </div>
-      ))}
+      )}
     </div>
   );
 };

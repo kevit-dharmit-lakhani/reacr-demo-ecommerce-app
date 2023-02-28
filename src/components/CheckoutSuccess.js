@@ -10,6 +10,13 @@ const CheckoutSuccess = (props) => {
   const dispatch = useDispatch();
 
   const checkoutHandler = () => {
+    const localUserData = JSON.parse(localStorage.getItem("isLoggedIn"));
+    if (!localUserData.orders) {
+      localUserData.orders = [];
+    }
+    localUserData.orders.push(props.cart);
+    localStorage.setItem("isLoggedIn", JSON.stringify(localUserData));
+
     setSuccess(true);
     dispatch(cartActions.resetState());
   };

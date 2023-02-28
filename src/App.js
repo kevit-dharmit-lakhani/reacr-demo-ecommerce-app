@@ -5,11 +5,10 @@ import ErrorPage from "./pages/Error";
 import LandingPage from "./pages/Landing";
 import ProductsListPage from "./pages/ProductsList";
 import ProductsDetailsPage from "./pages/ProductDetails";
-import SignupPage from "./pages/Signup";
-import LoginPage from "./pages/Login";
 import UserProfilePage, { action as formAction } from "./pages/UserProfile";
 import CartPage from "./pages/Cart";
 import CheckoutPage from "./pages/Checkout";
+import Orders from "./pages/Orders";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +24,8 @@ const router = createBrowserRouter([
           { path: ":id", element: <ProductsDetailsPage /> },
         ],
       },
-      { path: "signup", element: <SignupPage /> },
-      { path: "login", element: <LoginPage /> },
+      { path: "signup", element: <LandingPage landingPage="signup" /> },
+      { path: "login", element: <LandingPage landingPage="login" /> },
       {
         path: "user-profile",
         element: <UserProfilePage />,
@@ -34,6 +33,7 @@ const router = createBrowserRouter([
       },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
+      { path: "orders", element: <Orders /> },
     ],
   },
 ]);

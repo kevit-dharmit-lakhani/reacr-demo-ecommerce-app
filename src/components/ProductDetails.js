@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import StarRating from "./StarRating";
-// import SimpleImageSlider from "react-simple-image-slider";
 import AddToCartButtons from "./AddToCartButtons";
 import classes from "./ProductDetails.module.css";
 import ImageSlider from "./ImageSlider";
+import { Chip, Skeleton } from "@mui/material";
 
 const ProductDetails = (props) => {
   const [imgObj, setImgObj] = useState([]);
@@ -22,32 +22,45 @@ const ProductDetails = (props) => {
   return (
     <div className={classes.wrapper}>
       <div>
-        {imgObj.length > 0 && (
+        {imgObj.length > 0 ? (
           <ImageSlider images={imgObj} />
-          // <SimpleImageSlider
-          //   images={imgObj}
-          //   width={400}
-          //   height={400}
-          //   showNavs={true}
-          //   showBullets={true}
-          //   autoPlay={true}
-          // />
+        ) : (
+          <Skeleton variant="rectangular" width="100%" height="100%" />
         )}
       </div>
-      <div className={classes.right}>
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <div className={classes.reviews}>
-          <StarRating rating={product.rating} />
-          <h5>
-            ({((Math.random() * 100) / Math.random()).toFixed(0)} reviews)
-          </h5>
+      {props.isLoading && (
+        <div className={classes.skeletonRight}>
+          <Skeleton variant="text" sx={{ fontSize: "1.5em" }} />
+          <Skeleton variant="text" sx={{ fontSize: "1em" }} />
+          <Skeleton variant="text" sx={{ fontSize: "1.25em" }} />
+          <Skeleton variant="text" sx={{ fontSize: "1.25em" }} />
+          <Skeleton variant="rounded" width={115} height={45} />
         </div>
-        <h3>${product.price}</h3>
-        <div className={classes.actions}>
-          <AddToCartButtons item={product} />
+      )}
+      {!props.isLoading && (
+        <div className={classes.right}>
+          <h1>{product.title}</h1>
+          <p>{product.description}</p>
+          <div className={classes.reviews}>
+            <StarRating rating={product.rating} />
+            <h5>
+              ({((Math.random() * 100) / Math.random()).toFixed(0)} reviews)
+            </h5>
+          </div>
+          <div className={classes.prices}>
+            <h3>${product.discountedPrice}</h3>
+            <p>${product.price}</p>
+            <Chip
+              label={`${product.discountPercentage}% off`}
+              color="success"
+              size="small"
+            />
+          </div>
+          <div className={classes.actions}>
+            <AddToCartButtons item={product} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
